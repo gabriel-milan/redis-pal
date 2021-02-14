@@ -1,7 +1,7 @@
 # Redis Pal
 
 [![codecov](https://codecov.io/gh/gabriel-milan/redis-pal/branch/master/graph/badge.svg?token=SYATCHZJAG)](https://codecov.io/gh/gabriel-milan/redis-pal)
-[![Build Status](https://travis-ci.com/gabriel-milan/redis-pal.svg&branch=master)](https://travis-ci.com/gabriel-milan/redis-pal)
+[![Build Status](https://travis-ci.com/gabriel-milan/redis-pal.svg?branch=master)](https://travis-ci.com/gabriel-milan/redis-pal)
 [![PyPI version](https://badge.fury.io/py/redis-pal.svg)](https://badge.fury.io/py/redis-pal)
 
 Stop worrying about serialization! Store (almost) anything on Redis without even thiking about it.
