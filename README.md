@@ -1,5 +1,6 @@
 # Redis Pal
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9883436b5c9846398076016645afb36a)](https://app.codacy.com/gh/gabriel-milan/redis-pal?utm_source=github.com&utm_medium=referral&utm_content=gabriel-milan/redis-pal&utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/gabriel-milan/redis-pal/branch/master/graph/badge.svg?token=SYATCHZJAG)](https://codecov.io/gh/gabriel-milan/redis-pal)
 [![Build Status](https://travis-ci.com/gabriel-milan/redis-pal.svg?branch=master)](https://travis-ci.com/gabriel-milan/redis-pal)
 [![PyPI version](https://badge.fury.io/py/redis-pal.svg)](https://badge.fury.io/py/redis-pal)
