@@ -1,4 +1,3 @@
-from time import sleep
 from redis_pal import RedisPal
 
 
@@ -87,7 +86,7 @@ def test_generator():
     try:
         rp.set(key, inp)
         raise Exception("Could pickle a generator and shouldn't")
-    except:
+    except Exception:
         return
 
 

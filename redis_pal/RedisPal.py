@@ -9,7 +9,6 @@ from redis_pal.exceptions import SerializationError, DeserializationError
 
 
 class RedisPal(redis.Redis):
-
     """
     RedisPal helps you store data on Redis
     without worrying about serialization
@@ -46,7 +45,7 @@ class RedisPal(redis.Redis):
     def _serialize(cls, o: object) -> bytes:
         try:
             return pickle.dumps(o)
-        except:
+        except Exception:
             try:
                 return dill.dumps(o)
             except:
