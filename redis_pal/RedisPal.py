@@ -54,6 +54,8 @@ class RedisPal(redis.Redis):
 
     @classmethod
     def _deserialize(cls, e: Union[str, int, float, bytes]) -> object:
+        if e is None:
+            return None
         try:
             return pickle.loads(e)
         except:

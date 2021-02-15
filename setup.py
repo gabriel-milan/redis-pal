@@ -26,7 +26,7 @@ extensions = [
 
 setup(
     name="redis_pal",
-    version="0.1.0",
+    version="0.1.1",
     license="GPL-3.0",
     description="Store things in Redis without worrying about types or anything, just do it!",
     long_description=long_description,

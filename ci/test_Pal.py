@@ -125,3 +125,11 @@ def test_timestamp():
     assert isinstance(ans["value"], int)
     assert inp == ans["value"]
     assert (ans["last_modified"] - start) < 1
+
+
+def test_None():
+    _, rp = setup()
+    inp = None
+    ans = rp.get("RANDOM_UNSET_KEY")
+    assert ans is None
+    assert inp == ans
