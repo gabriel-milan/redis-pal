@@ -78,7 +78,9 @@ class RedisPal(redis.Redis):
         return self._deserialize(super(RedisPal, self).get(name=key, *args, **kwargs))
 
     def get_with_timestamp(self, key, *args, **kwargs) -> dict:
+        last_modified = super(RedisPal, self).get(
+            name="{}_timestamp".format(key), *args, **kwargs)
         return {
             "value": self._deserialize(super(RedisPal, self).get(name=key, *args, **kwargs)),
-            "last_modified": float(super(RedisPal, self).get(name="{}_timestamp".format(key), *args, **kwargs))
+            "last_modified": float(last_modified) if last_modified else 0
         }

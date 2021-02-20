@@ -127,6 +127,13 @@ def test_timestamp():
     assert (ans["last_modified"] - start) < 1
 
 
+def test_zero_timestamp():
+    _, rp = setup()
+    ans = rp.get_with_timestamp("RANDOM_UNSET_KEY")
+    assert ans["value"] is None
+    assert ans["last_modified"] == 0
+
+
 def test_None():
     _, rp = setup()
     inp = None
