@@ -11,7 +11,7 @@ You can also check the last time you've modified a given key just by calling `ge
 ## Support
 
 - Python 3.6.x, 3.7.x, 3.8.x and 3.9.x
-- Ubuntu and MacOS
+- Ubuntu (probably all Debian-based distros)
 - Redis 4.x, 5.x and 6.x
 
 Other platforms or versions are not tested.

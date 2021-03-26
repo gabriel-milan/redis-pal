@@ -24,11 +24,11 @@ jobs:
 
   tests:
     needs: before
-    name: ${{ matrix.os }}${{ matrix.arch }} - Python ${{ matrix.python-version }} - tests
+    name: ${{ matrix.os }}${{ matrix.arch }} - Python ${{ matrix.python-version }} - Redis ${{ matrix.redis-version }} - tests
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest]
+        os: [ubuntu-latest]
         arch: [x64]
         python-version: ["3.6.x", "3.7.x", "3.8.x", "3.9.x"]
         redis-version: [4, 5, 6]
