@@ -8,6 +8,14 @@
 Stop worrying about serialization! Store (almost) anything on Redis without even thiking about it.
 You can also check the last time you've modified a given key just by calling `get_with_timestamp(key)`.
 
+## Support
+
+- Python 3.6.x, 3.7.x, 3.8.x and 3.9.x
+- Ubuntu and MacOS
+- Redis 4.x, 5.x and 6.x
+
+Other platforms or versions are not tested.
+
 ## Usage
 
 ```py
