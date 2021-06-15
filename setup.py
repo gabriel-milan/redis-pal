@@ -8,6 +8,14 @@ def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 
+def gcc_available() -> bool:
+    try:
+        subprocess.check_call(["gcc", "-v"])
+        return True
+    except:
+        return False
+
+
 try:
     from Cython.Build import cythonize
 except:
@@ -24,9 +32,12 @@ extensions = [
     ),
 ]
 
+ext_modules = cythonize(extensions, compiler_directives={
+    "language_level": "3"}) if gcc_available() else None
+
 setup(
     name="redis_pal",
-    version="0.1.3",
+    version="0.1.4",
     license="GPL-3.0",
     description="Store things in Redis without worrying about types or anything, just do it!",
     long_description=long_description,
@@ -64,6 +75,5 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
     ],
-    ext_modules=cythonize(extensions, compiler_directives={
-                          "language_level": "3"}),
+    ext_modules=ext_modules,
 )
