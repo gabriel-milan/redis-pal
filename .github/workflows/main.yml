@@ -14,13 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.8
+      - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: "3.8.x"
+          python-version: "3.9.x"
           architecture: "x64"
       - name: Install dependencies
-        run: pip install wheel && pip install --prefer-binary -r requirements.txt -r test_requirements.txt
+        run: pip install poetry && poetry install
 
   tests:
     needs: before
@@ -44,35 +44,18 @@ jobs:
         with:
           redis-version: ${{ matrix.redis-version }}
       - name: Install dependencies
-        run: pip install wheel && pip install --prefer-binary -r requirements.txt  -r test_requirements.txt
-      - name: Build
-        run: |
-          python setup.py install
+        run: pip install poetry && poetry install
       - name: Run tests
         run: |
-          pytest
-      - name: Run coverage
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_API_TOKEN }}
-          verbose: true
+          poetry run pytest
+
   build_and_publish:
     needs: tests
     name: Build and publish to PyPI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
+      - name: Build and publish to PyPI
+        uses: JRubics/poetry-publish@v1.10
         with:
-          python-version: "3.8.x"
-          architecture: "x64"
-      - name: Install dependencies
-        run: pip install wheel && pip install --prefer-binary -r requirements.txt
-      - name: Build source distribution
-        run: python setup.py sdist
-      - name: Publish latest on PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_API_TOKEN }}
+          pypi_token: ${{ secrets.PYPI_API_TOKEN }}
