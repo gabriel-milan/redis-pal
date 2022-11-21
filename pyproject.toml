@@ -11,7 +11,7 @@ dill = "^0.3.5"
 redis = "^4.0"
 
 [tool.poetry.dev-dependencies]
-numpy = "^1.22.4"
+numpy = "^1.23.5"
 pytest-cov = "^3.0.0"
 codecov = "^2.1.12"
 
